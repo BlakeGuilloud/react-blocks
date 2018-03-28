@@ -2,7 +2,7 @@
 
 ### Usage
 ```bash
-$ git clone <>
+$ git clone https://github.com/BlakeGuilloud/react-blocks.git
 $ yarn dev # Installs dependencies and starts development server on port 1337.
 $ yarn build # Bundles production build into /dist directory.
 ```
