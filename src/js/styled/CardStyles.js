@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import {
   grayLightest,
   grayLight,
   grayDark,
+  gray,
   white
 } from './Variables';
 
@@ -27,6 +29,10 @@ export const CardContainer = styled.div`
   transform-style: preserve-3d;
   transform: ${props => props.active && 'rotateY(-180deg)'};
 `;
+
+CardContainer.propTypes = {
+  active: PropTypes.bool.isRequired,
+};
 
 const BaseCard = styled.div`
   cursor: pointer;
@@ -54,10 +60,10 @@ export const CardFrontDisclaimer = styled.div`
   padding: 10px;
   font-size: 11px;
   font-style: italic;
-  color: $gray;
+  color: ${gray};
   letter-spacing: 0px;
   backface-visibility: hidden; /* Have to duplicate this style because Safari ¯\_(ツ)_/¯ */
-  &:hover {
+  :hover {
     color: inherit;
   }
 `;
@@ -87,3 +93,7 @@ export const CardBackImage = styled.img.attrs({
   height: ${cardBackSize};
   width: ${cardBackSize};
 `;
+
+CardBackImage.propTypes = {
+  image: PropTypes.string.isRequired,
+};

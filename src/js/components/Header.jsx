@@ -7,7 +7,7 @@ const Header = () => (
   <HeaderWrapper>
     <GitHubRibbon
       color="white"
-      link="http://github.com/blakeguilloud"
+      link="http://github.com/blakeguilloud/react-blocks"
       position="right"
     />
     Flashcards
