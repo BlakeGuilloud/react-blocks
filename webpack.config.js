@@ -2,6 +2,7 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const extractPlugin = new ExtractTextPlugin({
   filename: 'main.css',
@@ -22,16 +23,30 @@ module.exports = (env = {}) => ({
   },
   devServer: {
     historyApiFallback: true,
+    compress: true,
+    port: 1337,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(paths.src, 'index.html'),
-      favicon: 'src/favicon.ico',
+      favicon: 'src/assets/favicon.ico',
     }),
     extractPlugin,
+    new UglifyJSPlugin({
+      sourceMap: true,
+    }),
   ],
   module: {
     rules: [
+      {
+        test: /\.(png|jpg|gif|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,

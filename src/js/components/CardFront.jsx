@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {
+  CardFrontDisclaimer,
+  CardFrontWrapper
+} from '../styled/CardStyles';
+
 const CardFront = ({ disclaimer, title }) => (
-  <div className="card__item-front">
-    <div>
-      {title}
-    </div>
-    <div className="card__item-front-disclaimer">
+  <CardFrontWrapper>
+    {title}
+    <CardFrontDisclaimer>
       {disclaimer}
-    </div>
-  </div>
+    </CardFrontDisclaimer>
+  </CardFrontWrapper>
 );
 
 CardFront.propTypes = {

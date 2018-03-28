@@ -1,27 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {
+  CardBackWrapper,
+  CardBackDescription,
+  CardBackTitle,
+  CardBackImage
+} from '../styled/CardStyles';
+
 const CardBack = ({ backTitle, description, image }) => {
   const renderContent = () => {
     if (description) {
       return (
-        <div className="card__item-back-description">
+        <CardBackDescription>
           {description}
-        </div>
+        </CardBackDescription>
       );
     }
 
     if (backTitle) {
       return (
-        <div className="card__item-back-title">
+        <CardBackTitle>
           {backTitle}
-        </div>
+        </CardBackTitle>
       );
     }
 
     if (image) {
       return (
-        <img src={image} />
+        <CardBackImage image={image} />
       );
     }
 
@@ -29,9 +36,9 @@ const CardBack = ({ backTitle, description, image }) => {
   };
 
   return (
-    <div className="card__item-back">
+    <CardBackWrapper>
       {renderContent()}
-    </div>
+    </CardBackWrapper>
   );
 };
 
