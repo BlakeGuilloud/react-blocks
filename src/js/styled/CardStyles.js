@@ -51,6 +51,7 @@ export const CardFrontWrapper = styled(BaseCard)`
   background-color: ${white};
   border-top: 2px solid ${grayDark};
   font-size: 24px;
+  text-align: center;
 `;
 
 export const CardFrontDisclaimer = styled.div`
@@ -85,13 +86,15 @@ export const CardBackDescription = styled.div`
 
 export const CardBackTitle = styled.div`
   font-size: 24px;
+  text-align: center;
 `;
 
 export const CardBackImage = styled.img.attrs({
-  src: props => require(`../../assets/${props.image}`),
+  src: props => props.image,
 })`
   height: ${cardBackSize};
   width: ${cardBackSize};
+  background-size: cover;
 `;
 
 CardBackImage.propTypes = {
